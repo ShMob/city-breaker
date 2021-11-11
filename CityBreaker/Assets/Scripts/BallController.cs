@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
 {
     public float moveAmount;
     public float bouncingAngleTolerance;
-    public 
+    public float magnitudeLimit;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,11 @@ public class BallController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private float Magnitude(float x, float z)
+    {
+        return (float)Math.Sqrt(Math.Pow(x, 2) + Math.Pow(z, 2));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,7 +40,13 @@ public class BallController : MonoBehaviour
                 if (forceVector.z == 0)
                     forceVector.z = -200;
                 else
-                    forceVector.z = Math.Sign(forceVector.x) * 200;
+                    forceVector.z = Math.Sign(forceVector.z) * 200;
+            }
+            float magnitude = Magnitude(forceVector.x, forceVector.z);
+            if(magnitude > magnitudeLimit)
+            {
+                forceVector.z -= Math.Sign(forceVector.z) * magnitude / 2;
+                forceVector.x -= Math.Sign(forceVector.x) * magnitude / 2;
             }
             Debug.Log(forceVector);
             GetComponent<Rigidbody>().AddForce(forceVector);
