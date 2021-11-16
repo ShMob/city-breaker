@@ -6,7 +6,6 @@ public class DestoyableObjectController : MonoBehaviour
 {
     private int maxHit;
     private int score;
-    private float dropProbability;
     public DestroyableObjectConfig config;
     private int hit;
     //public DestroyableObjectConfig config;
@@ -14,13 +13,13 @@ public class DestoyableObjectController : MonoBehaviour
     {
         maxHit = config.maxHit;
         score = config.score;
-        dropProbability = config.dropProbability;
         Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
         if (maxHit > 1)
         {
             rb = GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -46,8 +45,24 @@ public class DestoyableObjectController : MonoBehaviour
             }
             if(hit == maxHit)
             {
+                Material m = this.gameObject.GetComponent<MeshRenderer>().material;
+                Color color = m.color;
+                color.a = Mathf.MoveTowards(1, 0, Time.deltaTime); ;
+                m.color = color;
+                DropPowerUp();
+                //Color.Lerp(this.gameObject.GetComponent<MeshRenderer>().material.color, UnityEngine.Color.clear, 1 * Time.deltaTime);
                 StartCoroutine("DestroyYourself");
             }
+        }
+    }
+
+    private void DropPowerUp()
+    {
+        if(UnityEngine.Random.Range(0f, 1f) <= config.dropProbability)
+        {
+            GameObject powerUp = FindObjectOfType<SceneController>().GetPowerUp();
+            powerUp.transform.position = new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z);
+            Instantiate(powerUp);
         }
     }
 

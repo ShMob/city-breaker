@@ -25,12 +25,18 @@ public class BallController : MonoBehaviour
         return (float)Math.Sqrt(Math.Pow(x, 2) + Math.Pow(z, 2));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "DeathZone")
+        if (other.gameObject.tag == "DeathZone")
         {
             Debug.Log("DEAD");
+            FindObjectOfType<SceneController>().LoseBall();
+            Destroy(this.gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
         if (collision.gameObject)
         {
             Vector3 forceVector = collision.contacts[0].normal * moveAmount;
