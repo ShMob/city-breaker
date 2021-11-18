@@ -10,18 +10,25 @@ public class BallController : MonoBehaviour
     public float magnitudeLimit;
     public float speed;
     private Rigidbody rb;
+    private Vector3 force;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(0, 0, -1 * moveAmount * Time.deltaTime));
-        GetComponent<MeshRenderer>().material.color = new Color(0.5f, 1, 1, 1);
+        GetComponent<MeshRenderer>().material.color = new Color(0.7292346f, 0.6367924f, 1, 1);
+        force = Vector3.zero;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        if(force != Vector3.zero)
+        {
+            rb.velocity = Vector3.zero;
+            rb.AddForce(force);
+            force = Vector3.zero;
+        }
     }
 
     private float Magnitude(float x, float z)
@@ -47,7 +54,6 @@ public class BallController : MonoBehaviour
             forceVector.y = 0;
             if (Math.Abs(forceVector.z) < bouncingAngleTolerance)
             {
-                Debug.Log("in if");
                 if (forceVector.z == 0)
                     forceVector.z = -200;
                 else
@@ -55,17 +61,10 @@ public class BallController : MonoBehaviour
             }
             Debug.Log(forceVector);
             float magnitude = Magnitude(forceVector.x, forceVector.z);
-            //if(magnitude > magnitudeLimit)
-            //{
-            //    forceVector.z -= Math.Sign(forceVector.z) * magnitude / 2;
-            //    forceVector.x -= Math.Sign(forceVector.x) * magnitude / 2;
-            //}
-            //float forceSum = forceVector.x + forceVector.z;
             forceVector.x = forceVector.x / magnitude * speed;
             forceVector.z = forceVector.z / magnitude * speed;
             Debug.Log(forceVector);
-            rb.velocity = Vector3.zero;
-            rb.AddForce(forceVector);
+            force = forceVector;
         }
     }
 }

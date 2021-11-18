@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -983,6 +983,11 @@ PrefabInstance:
       propertyPath: speed
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 993919983365101139, guid: 19129c1617a203f4abc36f2b279e29b4,
+        type: 3}
+      propertyPath: objectCount
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 993919983365101148, guid: 19129c1617a203f4abc36f2b279e29b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1042,6 +1047,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainObjectsInScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533180591734745824, guid: 19129c1617a203f4abc36f2b279e29b4,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051788553476988731, guid: 19129c1617a203f4abc36f2b279e29b4,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051788553476988731, guid: 19129c1617a203f4abc36f2b279e29b4,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743499234463572141, guid: 19129c1617a203f4abc36f2b279e29b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19129c1617a203f4abc36f2b279e29b4, type: 3}

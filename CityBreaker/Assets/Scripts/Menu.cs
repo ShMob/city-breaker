@@ -14,4 +14,14 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Scenes/Yard");
+    }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("Scenes/Graveyard");
+    }
 }

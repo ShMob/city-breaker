@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 993919981473926874}
   - component: {fileID: 993919981473926873}
   - component: {fileID: 993919981473926886}
+  - component: {fileID: 1762928779}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Platform
@@ -329,8 +330,8 @@ CapsuleCollider:
   m_GameObject: {fileID: 993919981473926887}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.9673144
+  m_Enabled: 0
+  m_Radius: 1
   m_Height: 1.1521518
   m_Direction: 0
   m_Center: {x: -0.015595539, y: -0.0844714, z: 0}
@@ -347,6 +348,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAmount: 20
+--- !u!64 &1762928779
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993919981473926887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &993919981845400494
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUps:
   - {fileID: 3244727133841548373, guid: ff1024bf04cbb17418042f64a4eaf183, type: 3}
+  - {fileID: 6866610747559495486, guid: e26adfc63e6e29b41b372f31c2f841bb, type: 3}
   ballPrefab: {fileID: 6237593384633139017, guid: 2e9dd1831bfe08e43bc717cbe928f138,
     type: 3}
   scoreText: {fileID: 4051788553476988731}
@@ -918,6 +934,7 @@ MonoBehaviour:
   winScoreText: {fileID: 1987350620179691478}
   losePanel: {fileID: 6743499234463572141}
   winPanel: {fileID: 1475983703732103830}
+  objectCount: 0
 --- !u!1 &1297526328895480430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,7 +2674,7 @@ PrefabInstance:
     - target: {fileID: 6237593384633139029, guid: 2e9dd1831bfe08e43bc717cbe928f138,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.1
+      value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 6237593384633139029, guid: 2e9dd1831bfe08e43bc717cbe928f138,
         type: 3}

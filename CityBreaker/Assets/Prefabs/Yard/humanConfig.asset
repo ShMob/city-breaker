@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: humanConfig
   m_EditorClassIdentifier: 
   objectName: human
-  maxHit: 6
+  maxHit: 2
   score: 2000
   dropProbability: 1

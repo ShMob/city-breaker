@@ -14,6 +14,7 @@ public class SceneController : MonoBehaviour
     public TextMeshProUGUI winScoreText;
     public GameObject losePanel;
     public GameObject winPanel;
+    public int objectCount;
     private int score;
     private int ballCount;
 
@@ -41,6 +42,15 @@ public class SceneController : MonoBehaviour
         GameObject newBall = Instantiate(ballPrefab);
         ballCount++;
         newBall.transform.position = new Vector3(pos.x, 0.5f, pos.z + 0.5f);
+    }
+
+    public void updateObjectNumbers(int change)
+    {
+        objectCount += change;
+        if(objectCount <= 0)
+        {
+            Win();
+        }
     }
 
     public void LoseBall()

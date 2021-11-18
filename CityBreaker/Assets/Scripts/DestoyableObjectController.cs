@@ -19,6 +19,10 @@ public class DestoyableObjectController : MonoBehaviour
             rb = GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
+        if(gameObject.name == "greek_roof_1_square")
+        {
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
         
     }
     // Start is called before the first frame update
@@ -53,6 +57,7 @@ public class DestoyableObjectController : MonoBehaviour
                 FindObjectOfType<SceneController>().IncreaseScore(config.score);
                 //Color.Lerp(this.gameObject.GetComponent<MeshRenderer>().material.color, UnityEngine.Color.clear, 1 * Time.deltaTime);
                 StartCoroutine("DestroyYourself");
+                FindObjectOfType<SceneController>().updateObjectNumbers(-1);
             }
         }
     }
@@ -70,6 +75,7 @@ public class DestoyableObjectController : MonoBehaviour
     public IEnumerator DestroyYourself()
     {
         yield return new WaitForSecondsRealtime(1f);
+        Debug.Log("Destroying" + gameObject.name);
         Destroy(this.gameObject);
     }
 }
