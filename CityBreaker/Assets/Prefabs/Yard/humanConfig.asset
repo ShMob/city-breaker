@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 957c9c4f12626014bb9846530fced3b7, type: 3}
-  m_Name: WallConfig
+  m_Name: humanConfig
   m_EditorClassIdentifier: 
-  objectName: Wall
+  objectName: human
   maxHit: 6
-  score: 5000
-  dropProbability: 0.5
+  score: 2000
+  dropProbability: 1

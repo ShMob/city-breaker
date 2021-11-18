@@ -11,7 +11,9 @@ public class SceneController : MonoBehaviour
     public GameObject ballPrefab;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI loseScoreText;
+    public TextMeshProUGUI winScoreText;
     public GameObject losePanel;
+    public GameObject winPanel;
     private int score;
     private int ballCount;
 
@@ -20,12 +22,14 @@ public class SceneController : MonoBehaviour
         ballCount = 1;
         scoreText.text = "0";
         losePanel.SetActive(false);
+        winPanel.SetActive(false);
+        score = 0;
     }
 
     public void IncreaseScore(int amount)
     {
         score += amount;
-        scoreText.text = amount.ToString();
+        scoreText.text = score.ToString();
     }
 
     public GameObject GetPowerUp()
@@ -52,6 +56,13 @@ public class SceneController : MonoBehaviour
         losePanel.SetActive(true);
         scoreText.text = "";
         loseScoreText.text = score.ToString();
+    }
+
+    public void Win()
+    {
+        winPanel.SetActive(true);
+        scoreText.text = "";
+        winScoreText.text = score.ToString();
     }
 
     public void RestartLevel()

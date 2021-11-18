@@ -126,3 +126,4 @@ MonoBehaviour:
   moveAmount: 500
   bouncingAngleTolerance: 5
   magnitudeLimit: 400
+  speed: 500

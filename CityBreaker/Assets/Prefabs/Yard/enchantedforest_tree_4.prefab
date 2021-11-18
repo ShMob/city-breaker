@@ -104,7 +104,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5889944045848072820}
-  - component: {fileID: 2983925892859436327}
+  - component: {fileID: 2900324095987700857}
+  - component: {fileID: 8980302683642669671}
   m_Layer: 0
   m_Name: enchantedforest_tree_4
   m_TagString: Untagged
@@ -128,7 +129,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2983925892859436327
+--- !u!114 &2900324095987700857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,6 +142,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 6e6043c55a5de774a82743c3acf2bc7c, type: 2}
+--- !u!64 &8980302683642669671
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889944045848104532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &5889944045848104534
 GameObject:
   m_ObjectHideFlags: 0

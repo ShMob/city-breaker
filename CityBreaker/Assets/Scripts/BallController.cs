@@ -8,10 +8,14 @@ public class BallController : MonoBehaviour
     public float moveAmount;
     public float bouncingAngleTolerance;
     public float magnitudeLimit;
+    public float speed;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -1 * moveAmount * Time.deltaTime));
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(new Vector3(0, 0, -1 * moveAmount * Time.deltaTime));
+        GetComponent<MeshRenderer>().material.color = new Color(0.5f, 1, 1, 1);
     }
 
     // Update is called once per frame
@@ -43,19 +47,25 @@ public class BallController : MonoBehaviour
             forceVector.y = 0;
             if (Math.Abs(forceVector.z) < bouncingAngleTolerance)
             {
+                Debug.Log("in if");
                 if (forceVector.z == 0)
                     forceVector.z = -200;
                 else
                     forceVector.z = Math.Sign(forceVector.z) * 200;
             }
-            float magnitude = Magnitude(forceVector.x, forceVector.z);
-            if(magnitude > magnitudeLimit)
-            {
-                forceVector.z -= Math.Sign(forceVector.z) * magnitude / 2;
-                forceVector.x -= Math.Sign(forceVector.x) * magnitude / 2;
-            }
             Debug.Log(forceVector);
-            GetComponent<Rigidbody>().AddForce(forceVector);
+            float magnitude = Magnitude(forceVector.x, forceVector.z);
+            //if(magnitude > magnitudeLimit)
+            //{
+            //    forceVector.z -= Math.Sign(forceVector.z) * magnitude / 2;
+            //    forceVector.x -= Math.Sign(forceVector.x) * magnitude / 2;
+            //}
+            //float forceSum = forceVector.x + forceVector.z;
+            forceVector.x = forceVector.x / magnitude * speed;
+            forceVector.z = forceVector.z / magnitude * speed;
+            Debug.Log(forceVector);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(forceVector);
         }
     }
 }

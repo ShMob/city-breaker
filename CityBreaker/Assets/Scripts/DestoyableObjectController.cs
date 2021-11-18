@@ -50,6 +50,7 @@ public class DestoyableObjectController : MonoBehaviour
                 color.a = Mathf.MoveTowards(1, 0, Time.deltaTime); ;
                 m.color = color;
                 DropPowerUp();
+                FindObjectOfType<SceneController>().IncreaseScore(config.score);
                 //Color.Lerp(this.gameObject.GetComponent<MeshRenderer>().material.color, UnityEngine.Color.clear, 1 * Time.deltaTime);
                 StartCoroutine("DestroyYourself");
             }
