@@ -40,7 +40,6 @@ public class BallController : MonoBehaviour
     {
         if (other.gameObject.tag == "DeathZone")
         {
-            Debug.Log("DEAD");
             FindObjectOfType<SceneController>().LoseBall();
             Destroy(this.gameObject);
         }
@@ -59,11 +58,9 @@ public class BallController : MonoBehaviour
                 else
                     forceVector.z = Math.Sign(forceVector.z) * 200;
             }
-            Debug.Log(forceVector);
             float magnitude = Magnitude(forceVector.x, forceVector.z);
             forceVector.x = forceVector.x / magnitude * speed;
             forceVector.z = forceVector.z / magnitude * speed;
-            Debug.Log(forceVector);
             force = forceVector;
         }
     }

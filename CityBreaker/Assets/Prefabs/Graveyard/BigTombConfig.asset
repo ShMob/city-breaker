@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BigTombConfig
   m_EditorClassIdentifier: 
   objectName: bog tomb
-  maxHit: 12
+  maxHit: 18
   score: 4000
   dropProbability: 0.6

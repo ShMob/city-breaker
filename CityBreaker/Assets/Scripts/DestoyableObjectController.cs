@@ -31,16 +31,12 @@ public class DestoyableObjectController : MonoBehaviour
         hit = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Ball")
         {
+            Debug.Log(gameObject.name + "got hit!");
             hit++;
             if(hit == maxHit - 1)
             {
@@ -49,13 +45,8 @@ public class DestoyableObjectController : MonoBehaviour
             }
             if(hit == maxHit)
             {
-                Material m = this.gameObject.GetComponent<MeshRenderer>().material;
-                Color color = m.color;
-                color.a = Mathf.MoveTowards(1, 0, Time.deltaTime); ;
-                m.color = color;
                 DropPowerUp();
                 FindObjectOfType<SceneController>().IncreaseScore(config.score);
-                //Color.Lerp(this.gameObject.GetComponent<MeshRenderer>().material.color, UnityEngine.Color.clear, 1 * Time.deltaTime);
                 StartCoroutine("DestroyYourself");
                 FindObjectOfType<SceneController>().updateObjectNumbers(-1);
             }
