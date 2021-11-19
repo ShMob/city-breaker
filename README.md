@@ -21,4 +21,4 @@ The features implemented:
 - [x] Add "new ball" power up
 - [x] Add "increase platform's length" power up
 - [x] Add lose and win screen
-- [] Add a colorpicker to change the color of the platform and ball
+- [ ] Add a colorpicker to change the color of the platform and ball
