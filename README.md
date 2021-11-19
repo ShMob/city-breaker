@@ -1,5 +1,6 @@
 # City Breaker
 ## A "Brick Breaker" Game Remix
+[Page on Itch.io](https://shamob.itch.io/city-breaker)
 
 This game brings brick breaker's game mechanics to a 3D world, and uses trees, walls, graves (and a poor little human) instead of bricks.
 
