@@ -67,6 +67,11 @@ public class DestoyableObjectController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         Debug.Log("Destroying" + gameObject.name);
-        Destroy(this.gameObject);
+        if(this.gameObject.name == "GameObject")
+        {
+            Destroy(this.transform.parent.gameObject);
+        }
+        else
+            Destroy(this.gameObject);
     }
 }
